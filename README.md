@@ -5,6 +5,10 @@ demo: https://riskers.github.io/hashPage/demo/index.html
 
 ## 安装 初始化
 
+```shell
+npm install hashPage
+```
+
 ```html
 <link href="hashPage.css">
 
