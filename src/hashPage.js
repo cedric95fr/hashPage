@@ -1,6 +1,6 @@
 (function(){
 
-    umd("HashSwipe", HashSwipe);
+    umd("HashPage", HashPage);
 
     var e = {
         nextAll: function(s) {
@@ -24,7 +24,7 @@
     $.fn.nextAll = e.nextAll
     $.fn.prevAll = e.prevAll
 
-    function HashSwipe(opts){
+    function HashPage(opts){
 
         this.settings = {
             duration: 300,
@@ -42,7 +42,7 @@
         this._init();
     }
 
-    HashSwipe.prototype._init = function(){   
+    HashPage.prototype._init = function(){   
         var self = this;
         var timer = null;
 
@@ -61,7 +61,7 @@
         })
     }
 
-    HashSwipe.prototype._changePage = function(){
+    HashPage.prototype._changePage = function(){
         var index = this.getIndex();
 
         $('.page'+index).addClass('page-active').removeClass('page-next')
@@ -69,11 +69,11 @@
             .removeClass('page-active').addClass('page-next')
     }
 
-    HashSwipe.prototype.getHash = function(){
+    HashPage.prototype.getHash = function(){
         return location.hash;
     }
 
-    HashSwipe.prototype.getIndex = function(){
+    HashPage.prototype.getIndex = function(){
         var hash = this.getHash();
         var pageIndex = 0;
         if(hash){
