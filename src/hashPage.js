@@ -28,6 +28,7 @@
 
         this.settings = {
             duration: 300,
+            pageIndex: 1,
             onBeforeChange: function(){},
             onAfterChange: function(){}
         }
@@ -35,17 +36,13 @@
         for(var k in opts){
             this.settings[k] = opts[k]
         }
-
+        
         this.hash = location.hash;
-        this.index = 1;
 
         this._init();
-
-
     }
 
-    HashSwipe.prototype._init = function(){
-        
+    HashSwipe.prototype._init = function(){   
         var self = this;
         var timer = null;
 
@@ -70,7 +67,6 @@
         $('.page'+index).addClass('page-active').removeClass('page-next')
             .nextAll()
             .removeClass('page-active').addClass('page-next')
-
     }
 
     HashSwipe.prototype.getHash = function(){
@@ -79,13 +75,18 @@
 
     HashSwipe.prototype.getIndex = function(){
         var hash = this.getHash();
+        var pageIndex = 0;
         if(hash){
             var matchHash = hash.match(/\d+/ig);
-            this.index = matchHash[0];    
+            pageIndex = matchHash[0];    
         }else{
-            this.index = 1
+            if(this.settings.pageIndex != 1){
+                pageIndex = this.settings.pageIndex;
+            }else{
+                pageIndex = 1
+            }    
         }
-        return this.index;
+        return pageIndex;
     }
 
     function umd(name, component) {

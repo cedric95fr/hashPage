@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>hashSwipe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<link rel="stylesheet" href="./page.css">
+<link rel="stylesheet" href="../src/hashPage.css">
 <style>
 	.page{
 		display:flex;
@@ -73,6 +73,8 @@
     <script src="../src/hashPage.js"></script>
     <script>
     	var hashSwipe = new HashSwipe({
+    		duration: 300,
+    		pageIndex: 2,
     		onBeforeChange: function(){
     			console.log('before change')
     		},
