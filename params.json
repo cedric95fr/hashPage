@@ -1,0 +1,6 @@
+{
+  "name": "Hashpage",
+  "tagline": "根据页面hash的改变切换页面的mini库",
+  "body": "一款适合单页应用的小框架，依赖 zepto/jQuery\r\n通过检测 `hash` 的变化滑动页面\r\n\r\n## 安装 初始化\r\n\r\n```html\r\n<link href=\"hashPage.css\">\r\n\r\n<div class=\"page page1 page-active\">\r\n\t\t<h1>page1</h1>\r\n\t\t<div class=\"btns\">\r\n\t\t\t<a href=\"#2\">下一页</a>\r\n\t\t</div>\r\n</div>\r\n\r\n<div class=\"page page2 page-next\">\r\n\t<h1>page2</h1>\r\n\t<div class=\"btns\">\r\n\t\t<a href=\"#1\">上一页</a>\r\n\t\t\t<a href=\"#3\">下一页</a>\r\n\t\t</div>\r\n</div>\r\n\r\n<div class=\"page page3 page-next\">\r\n\t<h1>page3</h1>\r\n\t<div class=\"btns\">\r\n\t\t<a href=\"#1\">首页</a>\r\n\t</div>\r\n</div>\r\n\r\n<script src=\"zepto.js\"></script>\r\n<script src=\"hashPage.js\"></script>\r\n```\r\n\r\n## 使用\r\n\r\n```js\r\nvar hashSwipe = new HashSwipe({\r\n\tduration: 300,\r\n\tpageIndex: 2,\r\n\tonBeforeChange: function(){\r\n\t\tconsole.log('before change')\r\n\t},\r\n\tonAfterChange: function(){\r\n\t\tconsole.log('after change')\r\n\t}\r\n});\r\n```\r\n\r\n## 参数\r\n\r\n* duration: 切换页面时间，与css保持一致，默认 `300ms`\r\n* onBeforeChange: 页面切换前的回调\r\n* onAfterChange: 页面切换后的回调\r\n* pageIndex: 初进入页面时的页面索引\r\n\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
