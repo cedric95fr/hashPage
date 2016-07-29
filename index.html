@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hashpage by riskers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Hashpage</h1>
+      <h2 class="project-tagline">根据页面hash的改变切换页面的mini库</h2>
+      <a href="https://github.com/riskers/hashPage" class="btn">View on GitHub</a>
+      <a href="https://github.com/riskers/hashPage/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/riskers/hashPage/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>一款适合单页应用的小框架，依赖 zepto/jQuery
+通过检测 <code>hash</code> 的变化滑动页面</p>
+
+<h2>
+<a id="安装-初始化" class="anchor" href="#%E5%AE%89%E8%A3%85-%E5%88%9D%E5%A7%8B%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装 初始化</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>hashPage.css<span class="pl-pds">"</span></span>&gt;
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>page page1 page-active<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">h1</span>&gt;page1&lt;/<span class="pl-ent">h1</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btns<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#2<span class="pl-pds">"</span></span>&gt;下一页&lt;/<span class="pl-ent">a</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>page page2 page-next<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;page2&lt;/<span class="pl-ent">h1</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btns<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#1<span class="pl-pds">"</span></span>&gt;上一页&lt;/<span class="pl-ent">a</span>&gt;
+            &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#3<span class="pl-pds">"</span></span>&gt;下一页&lt;/<span class="pl-ent">a</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>page page3 page-next<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;page3&lt;/<span class="pl-ent">h1</span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btns<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#1<span class="pl-pds">"</span></span>&gt;首页&lt;/<span class="pl-ent">a</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>zepto.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>hashPage.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> hashSwipe <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">HashSwipe</span>({
+    duration<span class="pl-k">:</span> <span class="pl-c1">300</span>,
+    pageIndex<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+    <span class="pl-en">onBeforeChange</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>before change<span class="pl-pds">'</span></span>)
+    },
+    <span class="pl-en">onAfterChange</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>after change<span class="pl-pds">'</span></span>)
+    }
+});</pre></div>
+
+<h2>
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>参数</h2>
+
+<ul>
+<li>duration: 切换页面时间，与css保持一致，默认 <code>300ms</code>
+</li>
+<li>onBeforeChange: 页面切换前的回调</li>
+<li>onAfterChange: 页面切换后的回调</li>
+<li>pageIndex: 初进入页面时的页面索引</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/riskers/hashPage">Hashpage</a> is maintained by <a href="https://github.com/riskers">riskers</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
