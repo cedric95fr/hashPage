@@ -1,6 +1,7 @@
 {
-  "name": "hashswipe",
+  "name": "hashPage",
   "version": "1.0.0",
+  "main": "src/page.js",
   "description": "detect change of hash to swipe page",
   "author": "riskers <gaoyibobobo@gmail.com>",
   "license": "MIT"
