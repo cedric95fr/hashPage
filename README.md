@@ -1,6 +1,8 @@
 一款适合单页应用的小框架，依赖 zepto/jQuery
 通过检测 `hash` 的变化滑动页面
 
+demo: https://riskers.github.io/hashPage/demo/index.html
+
 ## 安装 初始化
 
 ```html
