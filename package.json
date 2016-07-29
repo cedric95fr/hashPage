@@ -1,8 +1,24 @@
 {
   "name": "hashPage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/page.js",
+  "repository": {
+	"type": "git",
+	"url": "https://github.com/riskers/hashPage"
+  },
   "description": "detect change of hash to swipe page",
+  "homepage": "https://github.com/riskers/hashPage",
+  "main": "src/hashPage.js",
   "author": "riskers <gaoyibobobo@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+  	"hash",
+  	"swipe",
+  	"page"
+  ],
+  "author": {
+  	"name": "riskers",
+  	"email": "gaoyibobobo@gmail.com"
+  },
   "license": "MIT"
 }
