@@ -41,7 +41,7 @@ npm install hashPage
 ## 使用
 
 ```js
-var hashSwipe = new HashSwipe({
+var hashPage = new HashPage({
 	duration: 300,
 	pageIndex: 2,
 	onBeforeChange: function(){
